@@ -4,7 +4,7 @@ import { full, Timer, getConstructorName, urls, isUndefined, loadJS, frameTimer,
 import { uploader, readZip } from './js/reader.js';
 import { InteractProxy } from '/utils/interact.js';
 import { brain } from './js/tips.js';
-self._i = ['Stone Phi\x67ros模拟器', [1, 0, 0, '045'], 1611795955, 1680614770];
+self._i = ['Aterstar Phi\x67ros模拟器', [1, 1, 0, '072'], 1611795955, 1680614770];
 const userAgent = navigator.userAgent;
 const tween = {
 	easeInSine: pos => 1 - Math.cos(pos * Math.PI / 2),
