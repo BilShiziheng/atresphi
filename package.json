@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "jszip": "^3.10.0",
+    "md5-js": "^0.0.3",
+    "stackblur-canvas": "^2.5.0"
+  }
+}
