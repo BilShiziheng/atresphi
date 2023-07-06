@@ -1,6 +1,7 @@
 /* noto-sans-sc-regular */
 @font-face {
 	font-family: 'Saira';
+	font-color: #fff;
 	font-style: normal;
 	font-weight: regular;
 	src: url('/font.eot');
@@ -43,12 +44,12 @@ select,
 button {
 	font-family: Saira;
 	line-height: 1.2;
+	color: #225fcf;
 }
 
 body {
 	margin: 0;
 	text-align: center;
-	background-color: #f1eff6;
 }
 
 a {
@@ -71,8 +72,7 @@ a:active {
 button,
 input[type="button"],
 input[type="file"]+label {
-	background-color: var(--button-bg);
-	color: #fff;
+	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 	border: none;
 	border-radius: 2px;
 	font-size: 0.9em;
@@ -100,6 +100,7 @@ input[type="button"] {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+	background-color: #000000;
 }
 
 input[type="checkbox"],
@@ -157,7 +158,7 @@ input[type="text"] {
 }
 
 .title {
-	color: #00f;
+	color: #84fab0;
 	word-break: break-all;
 }
 
