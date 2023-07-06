@@ -1,6 +1,8 @@
+
 @font-face {
 	font-family: Custom;
 	src: url('src/Custom.woff2') format('woff2');
+	color: #fff;
 }
 
 ::-webkit-scrollbar {
@@ -26,10 +28,12 @@ body {
 
 #stage {
 	position: relative;
-	Border-radius: 30;
-	background-color: rgba(28, 201, 132, 0.2);
+	background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
 	margin: auto;
 	line-height: 0;
+	box-shadow: 0px 0px 15px #84fab0;
+	backdrop-filter: saturate(180%) blur(20px);
+	border-radius: 8px;
 }
 
 #stage i {
@@ -43,6 +47,7 @@ body {
 }
 
 #stage i.tl {
+
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -67,8 +72,8 @@ body {
 }
 
 #mask {
-	color: gray;
-	font-family: Custom, Consolas, Menlo, monospace;
+	color: rgb(190, 83, 83);
+	font-family: Saira;
 	font-size: 4vmin;
 	position: absolute;
 	width: 70vmin;
@@ -117,7 +122,7 @@ body {
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: rgba(45, 137, 177, 0.65);
 	left: 0px;
 	bottom: 0px;
 	transition-property: opacity, visibility;
@@ -218,11 +223,25 @@ body {
 	text-align: center;
 	padding: calc(6px + 1vmin);
 	font-size: calc(6px + 1vmin);
-	font-family: Consolas, Menlo, monospace;
+	font-family: Saira;
 	user-select: text;
 	-webkit-user-select: text;
 	-moz-user-select: text;
 }
+#universe { 
+	display: block;
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 1;
+  }
 
 .msgbox {
 	display: flow-root;
@@ -248,4 +267,15 @@ body {
 .msgbox[type="error"] {
 	background-color: #fee;
 	color: #e10000;
+}
+
+.bjimg {
+	position:fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -40;
+	object-fit: cover;
+
 }
