@@ -1,10 +1,32 @@
+var day = document.getElementById('day');
+var p = document.createElement('p');
+var ptxt = document.createTextNode('——模拟器设置——');
+p.appendChild(ptxt);
+day.appendChild(p);
+//动态标题
+var OriginTitile = document.title;
+var titleTime;
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    //离开当前页面时标签显示内容
+    document.title = "w(ﾟДﾟ)w 不要走！再回来玩玩嘛！";
+    clearTimeout(titleTime);
+  } else {
+    //返回当前页面时标签显示内容
+    document.title = "♪(^∇^*)欢迎肥来！" + OriginTitile;
+    //两秒后变回正常标题
+    titleTime = setTimeout(function () {
+      document.title = OriginTitile;
+    }, 2000);
+  }
+});
 import simphi from './js/simphi.js';
 import { audio } from '/utils/aup.js';
 import { full, Timer, getConstructorName, urls, isUndefined, loadJS, frameTimer, time2Str, orientation, FrameAnimater } from './js/common.js';
 import { uploader, readZip } from './js/reader.js';
 import { InteractProxy } from '/utils/interact.js';
 import { brain } from './js/tips.js';
-self._i = ['Aterstar Phi\x67ros模拟器', [1, 1, 0, '072'], 1611795955, 1680614770];
+self._i = ['Aterstar Phi\x67ros模拟器', [1, 1, 0, '072'], 1621795955, 1680614770];
 const userAgent = navigator.userAgent;
 const tween = {
 	easeInSine: pos => 1 - Math.cos(pos * Math.PI / 2),
@@ -31,7 +53,6 @@ const timeDiff = currentDate.getTime() - specifiedDate.getTime();
 
 // 将毫秒数转换为天数
 const dayDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-
 let platform = '';
 if (/Windows/i.test(userAgent)) {
   platform = 'Windows';
@@ -876,7 +897,7 @@ document.addEventListener('DOMContentLoaded', async function qwq() {
 	const raw = {
 		image: {
 			JudgeLine: "//i0.hdslb.com/bfs/music/1673237951.png|8080",
-			ProgressBar: "./src/JudgeLine.png|8080",
+			ProgressBar: "./src/ProgressBar.png|8080",
 			SongsNameBar: "//i2.hdslb.com/bfs/music/1673237977.png|8080",
 			HitFXRaw: "//i2.hdslb.com/bfs/face/5094e42fed15363384b856c8dcef6a9e06507b94.png|8080",
 			Tap: "./src/respack/click.png|8080",
@@ -1251,15 +1272,18 @@ function loopCanvas() { //尽量不要在这里出现app
 	ctxos.fillText(stat.scoreStr, canvasos.width - lineScale * 0.65, lineScale * 1.375); //分数位置
 	ctxos.drawImage(res['Pause'], lineScale * 0.6, lineScale * 0.7, lineScale * 0.63, lineScale * 0.7);
 	if (showAcc.checked) {
+		ctxos.globalAlpha = 0.75;
 		ctxos.font = `${lineScale * 0.66}px Saira,Saira`;
 		ctxos.fillText(stat.accStr, canvasos.width - lineScale * 0.65, lineScale * 2.05); //acc位置
 	}
+
+	ctxos.globalAlpha = 1;
 	ctxos.textAlign = 'left';
 	ctxos.font = `${lineScale * 1.32}px Saira,Saira`;
-	ctxos.fillText(tmps.combo, canvasos.width - lineScale * 17.5, lineScale * 1.375); //连坤数
+	ctxos.fillText(tmps.combo, app.wlen, lineScale * 1.375); //连坤数
 	ctxos.globalAlpha = qwqIn.second < 0.67 ? tween.easeOutSine(qwqIn.second * 1.5) : (1 - tween.easeOutSine(qwqOut.second * 1.5));
 	ctxos.font = `${lineScale * 0.4}px Saira,Saira`;
-	ctxos.fillText(tmps.combo2, canvasos.width - lineScale * 17.5, lineScale * 1.95); //文本Combo or autoplay
+	ctxos.fillText(tmps.combo2, app.wlen, lineScale * 1.95);; //文本Combo or autoplay
 	//绘制曲名和等级
 	ctxos.globalAlpha = 1;
 	ctxos.setTransform(1, 0, 0, 1, 0, lineScale * (qwqIn.second < 0.67 ? (1 - tween.easeOutSine(qwqIn.second * 1.5)) : tween.easeOutSine(qwqOut.second * 1.5)) * 1.75);
