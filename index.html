@@ -4,7 +4,7 @@
 <head>
 	<!--viewport-fit=cover:Fill the whole screen on iPhone X-->
 	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-	<title>StonePhi v1.0 Loading</title>
+	<title>Aterstar Phigros模拟器 v1.1.072 美工:Mivik(?) 程序:BilShiziheng&lchzh3473</title>
 	<link rel="manifest" href="./manifest.json">
 	<link rel="stylesheet" href="./utils/style.css">
 	<link rel="stylesheet" href="style.css?v=142237">
@@ -28,6 +28,7 @@
 </head>
 
 <body>
+	<video src="./src/qd.mp4" class="bjimg" autoplay loop muted></video>
 	<noscript><strong style="color:#f00">此浏览器不支持JS，该脚本无法运行。</strong></noscript>
 	<div class="index">
 		<div class="main">
@@ -43,7 +44,9 @@
 			</div>
 			<input type="button" value="重置" onclick="location.reload(true)">
 			<input type="button" id="btn-more" value="更多设置">
-			<div id="select" class="disabled">
+			<p id="day"></p>
+			<div id="fontcolor">
+			<div id="select" class="disabled" id="fontcolor">
 				<div>谱面：<select id="select-chart" style="width:6em"></select></div>
 				<div>音乐：<select id="select-bgm" style="width:6em"></select></div>
 				<div>图片：<select id="select-bg" style="width:6em"></select></div><br>
@@ -106,6 +109,9 @@
 						<option value="16">16</option>
 					</select>
 				</div>
+				<div>
+					<p></p>
+				</div><br>
 				<div>音效音量：<select id="select-volume" style="width:5em">
 						<option value="0">0%</option>
 						<option value="0.25">25%</option>
@@ -114,8 +120,7 @@
 						<option value="2.5">250%</option>
 						<option value="5">500%</option>
 					</select>
-				</div><br>
-				<div><input type="checkbox" id="feedback" checked><label for="feedback">触摸反馈</label></div>
+					<div><input type="checkbox" id="feedback" checked><label for="feedback">触摸反馈</label></div>
 				<div><input type="checkbox" id="imageBlur" checked><label for="imageBlur">背景模糊</label></div>
 				<div><input type="checkbox" id="highLight" checked><label for="highLight">多押高亮</label></div><br>
 				<div><input type="checkbox" id="lineColor" checked><label for="lineColor">FC/AP指示器</label></div>
@@ -128,6 +133,33 @@
 						<option value="3">X&Y</option>
 					</select>
 				</div>
+				<div>宽高比：<select id="select-aspect-ratio" style="width:4em">
+					<option value="1.25">5:4</option>
+					<option value="1.333333">4:3</option>
+					<option value="1.4316546762589928">10:7</option>
+					<option value="1.461538">19:13</option>
+					<option value="1.6">8:5</option>
+					<option value="1.666667">5:3</option>
+					<option value="1.692308">22:13</option>
+					<option value="1.777778" selected>16:9</option>
+				</select>
+			</div>
+			<div>按键缩放：<select id="select-note-scale" style="width:4em">
+					<option value="0.8">极小</option>
+					<option value="0.9">较小</option>
+					<option value="1" selected>默认</option>
+					<option value="1.15">较大</option>
+					<option value="1.3">极大</option>
+				</select>
+			</div>
+			<div>背景变暗：<select id="select-background-dim" style="width:4em">
+					<option value="1">黑暗</option>
+					<option value="0.8">昏暗</option>
+					<option value="0.6" selected>默认</option>
+					<option value="0.4">较亮</option>
+					<option value="0.2">明亮</option>
+				</select>
+			</div><br>
 				<div class="disabled-when-playing">音乐变速：<select id="select-speed" style="width:4em">
 						<option value="Slowest">极慢</option>
 						<option value="Slower">较慢</option>
@@ -142,13 +174,12 @@
 					<input type="button" id="btn-pause" value="暂停">
 				</div>
 			</div>
-			<div><strong id="msg-out">初始化...</strong></div>
 			<div id="stage">
 				<i class="tl">&#xe900;</i><i class="tr">&#xe902;</i><i class="bl">&#xe909;</i><i class="br">&#xe904;</i>
 				<div id="mask">
-					<div>Atres特辑</div>
+					<div><strong id="msg-out">初始化...</strong></div>
 				</div>
-			</div>
+			</div><br>
 			<div id="cover-dark" class="cover-dark fade"></div>
 			<div id="cover-view" class="cover-view fade" qwq>
 				<div id="view-nav" class="view-nav">
@@ -163,6 +194,7 @@
 				</div>
 			</div>
 		</div>
+			</div>
 		<p class="footer">&copy;&nbsp;2020-2023&nbsp;lchz&#104;3473 & BilShiziheng</p>
 	</div>
 </body>
