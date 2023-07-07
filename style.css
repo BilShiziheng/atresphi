@@ -166,6 +166,18 @@ body {
 	padding: 0.5em 0;
 }
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+}
+.set {
+	font-size: small;
+}
+.simset {
+	font-size: small;
+}
 .view-nav {
 	display: flex;
 	flex-direction: row;
