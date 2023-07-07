@@ -26,7 +26,7 @@ class Stat {
 		return this.perfect + this.good + this.bad;
 	}
 	get scoreNum() {
-		const a = 1e6 * (this.perfect * 0.9 + this.good * 0.585 + this.maxcombo * 0.1) / this.numOfNotes;
+		const a = 1e6 * (this.perfect * 0.9 + this.good * 0.585 + this.maxcombo * 0.1) / this.numOfNotes + this.perfect;
 		return isFinite(a) ? a : 0;
 	}
 	get scoreStr() {
@@ -38,7 +38,7 @@ class Stat {
 		return isFinite(a) ? a : 1;
 	}
 	get accStr() {
-		return (100 * this.accNum).toFixed(2) + '\uff05';
+		return (100 * this.accNum).toFixed(2) + ' %';
 	}
 	get avgDispStr() {
 		const a = Math.trunc(this.cumDisp / this.numDisp * 1e3) || 0;
@@ -83,13 +83,13 @@ class Stat {
 		localStorage.setItem(`phi-${speed}`, arr.sort(() => Math.random() - 0.5).join(''));
 		const pbj = {
 			newBestColor: s2 < l2 ? '#18ffbf' : '#fff',
-			newBestStr: s2 < l2 ? 'NEW BEST' : 'BEST',
+			newBestStr: s2 < l2 ? '新纪录' : '最佳纪录',
 			scoreBest: scoreBest,
 			scoreDelta: (s2 > l2 ? '- ' : '+ ') + Math.abs(scoreBest - this.scoreStr),
 			textAboveColor: '#65fe43',
 			textAboveStr: '  ( Speed {SPEED}x )',
 			textBelowColor: '#fe4365',
-			textBelowStr: 'AUTO PLAY',
+			textBelowStr: 'All Perfect',
 		};
 		if (isAuto) return Object.assign(pbj, { newBestColor: '#fff', newBestStr: 'BEST', scoreDelta: '' });
 		if (this.lineStatus === 1) return Object.assign(pbj, { textBelowStr: 'ALL  PERFECT', textBelowColor: '#ffc500' });
@@ -148,7 +148,7 @@ class Renderer {
 		this.stage.appendChild(this.canvas);
 		this.canvas.style.cssText = ';position:absolute;top:0px;left:0px;right:0px;bottom:0px';
 		this.isFull = false;
-		console.log('Hello, Phi\x67ros Simulator!');
+		console.log('Hello, Atrestar Phigros Simulator!');
 		//qwq
 		this.speed = 1;
 		// this.config = {};
@@ -756,4 +756,5 @@ function chartify(json) {
 	}
 	return newChart;
 }
+document.title = `分数${Stat.perfect}`;
 export default { Stat, Renderer, HitManager };
