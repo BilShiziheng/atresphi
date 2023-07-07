@@ -4,7 +4,6 @@
 <head>
 	<!--viewport-fit=cover:Fill the whole screen on iPhone X-->
 	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-	<title>Aterstar Phigros模拟器 v1.1.072 美工:Mivik(?) 程序:BilShiziheng&lchzh3473</title>
 	<link rel="manifest" href="./manifest.json">
 	<link rel="stylesheet" href="./utils/style.css">
 	<link rel="stylesheet" href="style.css?v=142237">
@@ -44,9 +43,9 @@
 			</div>
 			<input type="button" value="重置" onclick="location.reload(true)">
 			<input type="button" id="btn-more" value="更多设置">
-			<p id="day"></p>
+			<p class="set">⚙ 谱面设置 ⚙</p><br>
 			<div id="fontcolor">
-			<div id="select" class="disabled" id="fontcolor">
+				<div id="select" class="disabled" id="fontcolor">
 				<div>谱面：<select id="select-chart" style="width:6em"></select></div>
 				<div>音乐：<select id="select-bgm" style="width:6em"></select></div>
 				<div>图片：<select id="select-bg" style="width:6em"></select></div><br>
@@ -112,6 +111,7 @@
 				<div>
 					<p></p>
 				</div><br>
+				<p class="simset">💻 模拟器设置 💻</p><br>
 				<div>音效音量：<select id="select-volume" style="width:5em">
 						<option value="0">0%</option>
 						<option value="0.25">25%</option>
@@ -174,6 +174,7 @@
 					<input type="button" id="btn-pause" value="暂停">
 				</div>
 			</div>
+			</p>
 			<div id="stage">
 				<i class="tl">&#xe900;</i><i class="tr">&#xe902;</i><i class="bl">&#xe909;</i><i class="br">&#xe904;</i>
 				<div id="mask">
@@ -194,7 +195,8 @@
 				</div>
 			</div>
 		</div>
-			</div>
+
+		</div>
 		<p class="footer">&copy;&nbsp;2020-2023&nbsp;lchz&#104;3473 & BilShiziheng</p>
 	</div>
 </body>
