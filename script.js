@@ -1,25 +1,3 @@
-var day = document.getElementById('day');
-var p = document.createElement('p');
-var ptxt = document.createTextNode('——模拟器设置——');
-p.appendChild(ptxt);
-day.appendChild(p);
-//动态标题
-var OriginTitile = document.title;
-var titleTime;
-document.addEventListener("visibilitychange", function () {
-  if (document.hidden) {
-    //离开当前页面时标签显示内容
-    document.title = "w(ﾟДﾟ)w 不要走！再回来玩玩嘛！";
-    clearTimeout(titleTime);
-  } else {
-    //返回当前页面时标签显示内容
-    document.title = "♪(^∇^*)欢迎肥来！" + OriginTitile;
-    //两秒后变回正常标题
-    titleTime = setTimeout(function () {
-      document.title = OriginTitile;
-    }, 2000);
-  }
-});
 import simphi from './js/simphi.js';
 import { audio } from '/utils/aup.js';
 import { full, Timer, getConstructorName, urls, isUndefined, loadJS, frameTimer, time2Str, orientation, FrameAnimater } from './js/common.js';
@@ -1419,7 +1397,7 @@ function qwqdraw3(statData) {
 	ctxos.fillText(statData.scoreBest, -1720 * tween.ease10(range(qwqEnd.second - 0.1)) + 3005, 485);
 	// 	ctxos.globalAlpha = range((qwqEnd.second - 1.87) * 2.50);
 	ctxos.textAlign = "left";
-	ctxos.fillText(statData.scoreDelta, -1720 * tween.ease10(range(qwqEnd.second - 0.1)) + 3140, 485);
+	ctxos.fillText(statData.scoreDelta + '理论值附加 +' + stat.perfect, -1720 * tween.ease10(range(qwqEnd.second - 0.1)) + 3140, 485);
 	ctxos.globalAlpha = range((qwqEnd.second - 0.8) * 1.50);
 	ctxos.textAlign = "right";
 	ctxos.font = "50px SyHybrid,Saira";
@@ -2176,3 +2154,10 @@ Object.defineProperty(main, 'curTime', {
 	get: () => curTime,
 	set: (v) => curTime = v
 })
+const getFreq = () => { //progress变为频谱图
+	const bufferLength = analyser.frequencyBinCount;
+	const freq = new Uint8Array(bufferLength);
+	analyser.getByteFrequencyData(freq);
+	const avg = freq.reduce((a, b) => a + b) / bufferLength;
+	return Math.min(1, avg / 255 * 2.15); //qwq
+}
