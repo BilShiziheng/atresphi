@@ -756,5 +756,5 @@ function chartify(json) {
 	}
 	return newChart;
 }
-document.title = `分数${Stat.perfect}`;
+
 export default { Stat, Renderer, HitManager };
