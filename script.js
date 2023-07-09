@@ -1,8 +1,8 @@
 import simphi from './js/simphi.js';
-import { audio } from '/utils/aup.js';
+import { audio } from './utils/aup.js';
 import { full, Timer, getConstructorName, urls, isUndefined, loadJS, frameTimer, time2Str, orientation, FrameAnimater } from './js/common.js';
 import { uploader, readZip } from './js/reader.js';
-import { InteractProxy } from '/utils/interact.js';
+import { InteractProxy } from './utils/interact.js';
 import { brain } from './js/tips.js';
 self._i = ['Aterstar Phi\x67ros模拟器', [1, 1, 0, '072'], 1621795955, 1680614770];
 const userAgent = navigator.userAgent;
