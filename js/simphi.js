@@ -1,4 +1,5 @@
 // let energy = 0;
+const ChartLevel = document.getElementById('chart-level');
 class Stat {
 	constructor() {
 		this.level = 0;
@@ -9,6 +10,15 @@ class Stat {
 		this.numDisp = 0;
 		this.maxcombo = 0;
 		this.combo = 0;
+		
+	}
+	
+	get RTR() {
+	    const FirstNum = (this.accNum * 100);
+	    const SecondNum = ((FirstNum - 55)/45);
+	    const ThirdNum = SecondNum * SecondNum;
+	    return SecondNum > 0 ? Number(ThirdNum) * ChartLevel.value  : Number(0 - ThirdNum) * ChartLevel.value;
+	    //return ThirdNum * ChartLevel.value;
 	}
 	get good() {
 		return this.noteRank[7] + this.noteRank[3];
@@ -29,6 +39,7 @@ class Stat {
 		const a = 1e6 * (this.perfect * 0.9 + this.good * 0.585 + this.maxcombo * 0.1) / this.numOfNotes + this.perfect;
 		return isFinite(a) ? a : 0;
 	}
+
 	get scoreStr() {
 		const a = this.scoreNum.toFixed(0);
 		return ('0').repeat(a.length < 7 ? 7 - a.length : 0) + a;
@@ -105,6 +116,7 @@ class Stat {
 		this.combos = [0, 0, 0, 0, 0]; //不同种类note实时连击次数
 		this.cumDisp = 0;
 		this.curDisp = 0;
+		this.rks = 0;
 		this.numDisp = 0;
 		this.data = {};
 		if (speed === '' && localStorage.getItem('phi')) {
