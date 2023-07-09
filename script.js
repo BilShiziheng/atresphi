@@ -894,7 +894,8 @@ document.addEventListener('DOMContentLoaded', async function qwq() {
 			LevelOver4: "./src/LevelOver4.png|8080",
 			LevelOver5: "./src/LevelOver5.png|8080",
 			Rank: "./src/Rank.png|8080",
-			Pause: "./src/PauseNew.png|8080"
+			Pause: "./src/PauseNew.png|8080",
+			Rks: "./src/rks.png|8080"
 		},
 		audio: {
 			HitSong0: "//i2.hdslb.com/bfs/music/1673231631.png|m8",
@@ -1403,7 +1404,7 @@ function qwqdraw3(statData) {
 	ctxos.font = "50px SyHybrid,Saira";
 	ctxos.fillText(stat.accStr, -1020 * tween.ease10(range(qwqEnd.second * 0.9 - 0.25)) + 2749, 635);
 	ctxos.font = "26px SyHybrid,Saira,Noto Sans SC";
-	ctxos.fillText("Accuracy", -1020 * tween.ease10(range(qwqEnd.second * 0.9 - 0.25)) + 2755, 670);
+	ctxos.fillText('准确率' + 'RKS:' + stat.RTR, -1020 * tween.ease10(range(qwqEnd.second * 0.9 - 0.25)) + 2755, 670);
 	ctxos.textAlign = "left";
 	ctxos.font = "50px Saira,SyHybrid,Noto Sans SC";
 	ctxos.fillText(stat.maxcombo, -1020 * tween.ease10(range(qwqEnd.second * 0.9 - 0.25)) + 2100, 635);
@@ -1829,7 +1830,7 @@ selectflip.addEventListener('change', evt => app.mirrorView(evt.target.value));
 status.reg('selectFlip', selectflip);
 const selectspeed = $id('select-speed');
 selectspeed.addEventListener('change', evt => {
-	const dict = { Slowest: -9, Slower: -4, '': 0, Faster: 3, Fastest: 55 };
+	const dict = { Slowest: -9, Slower: -4, '': 0, Faster: 3, Fastest: 80 };
 	app.speed = 2 ** (dict[evt.target.value] / 12);
 });
 status.reg('selectSpeed', selectspeed);
