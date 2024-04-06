@@ -894,8 +894,7 @@ document.addEventListener('DOMContentLoaded', async function qwq() {
 			LevelOver4: "./src/LevelOver4.png|8080",
 			LevelOver5: "./src/LevelOver5.png|8080",
 			Rank: "./src/Rank.png|8080",
-			Pause: "./src/PauseNew.png|8080",
-			Rks: "./src/rks.png|8080"
+			Pause: "./src/PauseNew.png|8080"
 		},
 		audio: {
 			HitSong0: "//i2.hdslb.com/bfs/music/1673231631.png|m8",
